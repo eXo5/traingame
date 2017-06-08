@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/stylex.css">
+	<title>Firebase Test</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-default">	
+		<div id="navLogin">
+			<form class="form-inline">
+				<div class="form-group">
+					<label for="Username">Username:</label>
+					<input type="text" class="form-control" id="user" placeholder="Username">
+				</div>
+				<div class="form-group">
+					<label for="password">Password:</label>
+					<input type="password" class="form-control" id="password" placeholder="Password">
+					<input id="loginButton" type="submit">
+				</div>
+ 			</form>
+		</div>
+	</nav>
+	
+	<div class="jumbotron">
+		<h1 class="train">Trains, <strike>planes</strike>, <strike> automobiles</strike></h1>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="panel panel-heading train">
+				<h1>Train Schedules</h1><br>
+
+					<div class="panel panel-body">
+						<table class="table table-hover table-striped">
+							<tr>
+								<td>Train Name</td>
+								<td>Train Destination</td>
+								<td>Frequency</td>
+								<td>Next Train</td>
+								<td>Arrives In</td>
+							</tr>	
+						</table>
+					</div>
+							<hr>
+					<!-- <div class="panel panel-heading train">
+						<h1>Add New Train</h1>
+					</div> -->
+					<div class="panel panel-body train">
+						<h1 id="addnew">Add New Train</h1>
+						<form class="form-horizontal" id="trainForm">
+							<div class="form-group col-sm-10">
+								<div class="row">
+								<label class="control-label col-sm-3" for="newName">New Train:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="newTrain" placeholder="New Train">
+								</div>
+								<label class="control-label col-sm-3" for="newDest">Destination:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="newDest" placeholder="Destination">
+								</div>	
+									<label class="control-label col-sm-3" for="newFrequency">Frequency:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="newFreq" placeholder="Frequency">
+								</div>
+								<label class="control-label col-sm-3" for="newFirst">First Train:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="newFirstTrain" placeholder="First Train Departs">
+								</div>
+								<div class="col-xs-9 col-sm-offset-3">
+									<input id="trainBtn" class="btn btn-default" type="submit">	
+								</div>	
+						</form>
+						</div>
+					</div>
+			</div>
+	</div>
+
+<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+<script src="assets/javascript/app.js"></script>
+
+</body>
+</html>

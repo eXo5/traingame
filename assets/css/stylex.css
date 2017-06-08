@@ -1,0 +1,34 @@
+body {
+	 background: url("../images/playstation-pattern.png");
+}	.jumbotron {background: url("../images/playstation-pattern.png");
+				font-family: Quagent; sans-serif;}
+
+#navLogin {
+	float:right;
+}
+
+#loginButton {
+	clear:both;
+}
+
+.train {
+	text-align:center;
+}
+
+.control-label {
+	margin-top:7px;
+	clear:both;
+}
+
+.form-control {
+	margin-top:5px;
+}
+
+#addnew {
+	margin-bottom:20px;
+}
+
+#submit {
+	display:block;
+	margin: 10px auto;
+}
