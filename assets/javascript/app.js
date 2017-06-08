@@ -57,13 +57,14 @@ var newFirst = $("#newFirstTrain").val().trim();
 		console.log("next train: " + moment(nextTrain).format("hh:mm"));
 		//these work
 
-		//this doesn't work
+	
 		var train = snapshot.val();
 		var trainR = $("<tr>");
 		var tName = $("<td>");
 		var nTrain = tName.append(snapshot.val().trainName);
 		var x = trainR.append(nTrain);
-		$("#trainTable").append("train");
+
+		$("#tbody").append(x);
 	});
 	// trainWrite.on("value", function(snapshot){
 	// 	console.log(snapshot.val());
