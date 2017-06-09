@@ -35,36 +35,69 @@ var newFirst = $("#newFirstTrain").val().trim();
 				frequency: newFreq,
 				firstTrain: newFirst
 				});		
-			//and this doesn'twork
-		$("#newTrain").html();
-		$("#newDestination").html();
-		$("#newFreq").html();
-		$("#newFirst").html();		
+	
+		$("#newTrain").val("");
+		$("#newDest").val("");
+		$("#newFreq").val("");
+		$("#newFirstTrain").val("");		
 	});
-
+		//Function for writing in the added trains values to the tbody
 	database.ref("/trainTimes").on("child_added", function(snapshot, prevChildKey) {
-		var firstConverted = moment(newFirst, "hh:mm").subtract(1, "years");
-		console.log(firstConverted);
-		var currentTime = moment();
-		console.log("current time: " + moment(currentTime).format("hh:mm"))
+	    var firstConverted = moment(snapshot.val().firstTrain, "hh:mm").subtract(1, "years");
+	    console.log(firstConverted);
+   		var currentTime = moment();
+   		console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 		var diffTime = moment().diff(moment(firstConverted), "minutes");
-		console.log("difference : " + diffTime);
-		var tRemainder = diffTime % newFreq;
-		console.log(tRemainder);
-		var timeTillTrain = newFreq - tRemainder;
+    	console.log("DIFFERENCE IN TIME: " + diffTime);
+		var tRemainder = diffTime % snapshot.val().frequency;
+		console.log("tR: " + tRemainder);
+		var timeTillTrain = snapshot.val().frequency - tRemainder;
 		console.log("Time until train: " + timeTillTrain);
 		var nextTrain = moment().add(timeTillTrain, "minutes");
+		var nextTrainx = moment(nextTrain).format("hh:mm");
 		console.log("next train: " + moment(nextTrain).format("hh:mm"));
-		//these work
+		
+		// var today = moment().format("YYYY-MM-DD");
+		// var todayFirstTrain = (today + " " + snapshot.val().firstTrain);
+		// console.log(moment(todayFirstTrain).format("X"));
+		// var time = moment.unix().format("X");
+		// console.log(moment.unix(time).format("hh:mm"));
+		// var start = moment(todayFirstTrain).format("X");
 
+		// var timeDiff = start;
+		// var minutes = Math.floor(timeDiff/60);
+		// var nxTrain = (minutes%snapshot.val().frequency);
+		// console.log(nxTrain);
 	
 		var train = snapshot.val();
 		var trainR = $("<tr>");
-		var tName = $("<td>");
-		var nTrain = tName.append(snapshot.val().trainName);
+		//I really got tired of naming variables here lol
+		var nTrain = $("<td>").append(train.trainName);
 		var x = trainR.append(nTrain);
 
+		var tDTrain = $("<td>").append(train.destination);
+		var y = trainR.append(tDTrain);
+
+		var tFTrain = $("<td>").append(train.firstTrain);
+		var z = trainR.append(tFTrain);
+
+		var xyz = $("<td>").append(train.frequency);
+		var xz = trainR.append(xyz);
+
+		var nxTrain = $("<td>").append(nextTrainx);
+		var pageNext = trainR.append(nxTrain);
+
+		var next = $("<td>").append(timeTillTrain);
+		var nextx = trainR.append(next);
+
+
 		$("#tbody").append(x);
+		$("#tbody").append(y);
+		$("#tbody").append(z);
+		$("#tbody").append(xz);
+		$("#tbody").append(pageNext);
+		$("#tbody").append(nextx);
+		//$("#tbody").append(moment().add(timeTillTrain, "minutes").format("YYYY-MM-DD"));
 	});
 	// trainWrite.on("value", function(snapshot){
 	// 	console.log(snapshot.val());
@@ -74,7 +107,7 @@ var newFirst = $("#newFirstTrain").val().trim();
 	
 
 
- // Assumptions
+// Assumptions
     // var tFrequency = 3;
 
     // // Time is 3:30 AM
