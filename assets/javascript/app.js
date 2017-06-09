@@ -57,18 +57,6 @@ var newFirst = $("#newFirstTrain").val().trim();
 		var nextTrainx = moment(nextTrain).format("hh:mm");
 		console.log("next train: " + moment(nextTrain).format("hh:mm"));
 		
-		// var today = moment().format("YYYY-MM-DD");
-		// var todayFirstTrain = (today + " " + snapshot.val().firstTrain);
-		// console.log(moment(todayFirstTrain).format("X"));
-		// var time = moment.unix().format("X");
-		// console.log(moment.unix(time).format("hh:mm"));
-		// var start = moment(todayFirstTrain).format("X");
-
-		// var timeDiff = start;
-		// var minutes = Math.floor(timeDiff/60);
-		// var nxTrain = (minutes%snapshot.val().frequency);
-		// console.log(nxTrain);
-	
 		var train = snapshot.val();
 		var trainR = $("<tr>");
 		//I really got tired of naming variables here lol
